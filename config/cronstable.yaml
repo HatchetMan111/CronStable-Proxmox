@@ -1,0 +1,16 @@
+# Cronstable Starter-Konfiguration (Proxmox LXC)
+# Upstream-Doku: https://github.com/ptweezy/cronstable
+# Validieren mit: cronstable --validate-config -c /etc/cronstable/cronstable.yaml
+
+state:
+  path: /var/lib/cronstable
+
+jobs:
+  - name: hello
+    command: echo hello from cronstable
+    schedule: "* * * * *"
+    captureStdout: true
+
+web:
+  listen:
+    - http://0.0.0.0:8080

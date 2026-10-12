@@ -1,0 +1,18 @@
+[Unit]
+Description=Cronstable – Job-Scheduler mit Web-Dashboard
+Documentation=https://github.com/ptweezy/cronstable
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=cronstable
+Group=cronstable
+WorkingDirectory=/var/lib/cronstable
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/cronstable/.venv/bin/cronstable -c /etc/cronstable/cronstable.yaml
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
